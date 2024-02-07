@@ -1,23 +1,23 @@
 const squareDiv = document.createElement('div');
 const container = document.querySelector('.container');
 const resizeBtn = document.querySelector('.prompt');
-
-
+const clearBtn = document.querySelector('.clear')
+let newGrid = 16;
 resizeBtn.addEventListener('click', () => {
   removeSquareDiv();
 
-  let newGrid;
   do {
     newGrid = prompt('Enter a number between 1 and 100');
   } while ((isNaN(newGrid)) || (newGrid > 100) || (newGrid < 1));
   container.style.backgroundColor = 'white';
-  makeGrid(newGrid)
-
+  makeGrid(newGrid);
+  return (newGrid)
 
 });
-// create a variable that prompts a value for newGrid, If newGrid is not a number prompt wrong input please type a number
-// If the newGrid is greater then 100, prompt  try again, maximum is 100
-
+clearBtn.addEventListener('click', () => {
+  removeSquareDiv();
+  makeGrid(newGrid);
+})
 
 function removeSquareDiv() {
   while (container.firstChild) {
@@ -36,6 +36,7 @@ container.addEventListener('mouseover', (event) => {
   event.stopPropagation();
   event.target.style.backgroundColor = 'black';
 });
+
 makeGrid(16);
 // When Click or resize, redo  the functions with the new gridCount
 
