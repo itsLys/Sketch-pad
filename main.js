@@ -8,7 +8,7 @@ const redBtn = document.querySelector('.red');
 const blueBtn = document.querySelector('.blue');
 const greenBtn = document.querySelector('.green');
 const orangeBtn = document.querySelector('.orange');
-const progressiveBtn = document.querySelector('.progressive')
+
 
 
 function setColorRandom() {
@@ -20,10 +20,8 @@ function setColorRandom() {
   return rgb;
 };
 
-// rgba(0, 0, 0, 0);
-// return and rgba value with the .1 added to the ad
 
-let newGrid = 16;
+let newGrid = 64;
 function removeSquareDiv() {
   while (container.firstChild) {
     container.removeChild(container.firstChild);
@@ -45,8 +43,8 @@ clearBtn.addEventListener('click', () => {
   makeGrid(newGrid);
 });
 function makeGrid(gridCount) {
-  squareDiv.style.width = `${400 / gridCount}px`;
-  squareDiv.style.height = `${400 / gridCount}px`;
+  squareDiv.style.width = `${100 / gridCount}%`;
+  squareDiv.style.height = `${100 / gridCount}%`;
   for (i = 0; i < (gridCount ** 2); i++) {
     container.appendChild(squareDiv.cloneNode(true))
   };
@@ -63,7 +61,7 @@ randomBtn.addEventListener('click', () => {
     event.target.style.backgroundColor = setColorRandom();
   });
 });
-let a = 0.1;
+
 
 blackBtn.addEventListener('click', () => {
   container.addEventListener('mouseover', (event) => {
